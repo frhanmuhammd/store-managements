@@ -1,0 +1,118 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 70px;
+    background-color: #f8f9fa;
+    color: #0f1010;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px;
+}
+
+.navbar {
+    background-color: #007bff !important; 
+    height: 70px;
+}
+/* Navbar Brand */
+.navbar-brand {
+    color: #121213 !important;  /* Teks navbar brand tetap putih */
+}
+
+/* Warna Teks Link Navbar */
+.nav-link {
+    color: #050404 !important; /* Warna teks putih */
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+/* Hover Navbar Link */
+.nav-link:hover {
+    color: #f5f2ea !important;  /* Teks berubah jadi kuning saat hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Efek latar belakang transparan saat hover */
+    border-radius: 5px;
+}
+
+/* Warna untuk Dropdown */
+.nav-item .dropdown-menu {
+    background-color: #1e86ef; /* Latar belakang dropdown */
+    border: none;
+    border-radius: 5px;
+}
+
+.nav-item .dropdown-menu .dropdown-item {
+    color: #010101 !important; /* Teks dropdown putih */
+}
+
+.nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #f6f5f1;
+    color: #0056b3;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #0056b3 !important;
+    
+}
+
+.footer h5 {
+    color: white; /* Mengatur warna heading menjadi putih */
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.footer li i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #f5f5f2; /* Mengubah warna ikon menjadi kuning */
+}
+
+.footer a {
+    color: #eae7df;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Bagian footer bottom (copyright) */
+.footer .text-center {
+    background-color: #0056b3; /* Mengatur latar belakang footer bawah menjadi biru */
+    padding: 10px;
+    color: white;
+}
+
+.footer .btn-floating {
+    border: 1px solid hsl(60, 4%, 95%);
+    border-radius: 50%;
+    color: #f7f4eb;
+    margin: 0 5px;
+    transition: 0.3s;
+}
+
+.footer .btn-floating:hover {
+    background-color: #0deb2e;
+    color: #067bf0;
+}
+
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: block; /* Agar navbar item ditampilkan vertikal pada perangkat kecil */
+    }
+}

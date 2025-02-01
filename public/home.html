@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fariz Frozen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/style/home.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg fixed-top">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img src="./assets/logo.png" alt="FARIS FROZEN" width="30" height="30" />
+        </a>
+
+        <!-- Toggle Button for Small Screens -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <!-- Home -->
+            <li class="nav-item">
+              <a class="nav-link" href="/home.html">Home</a>
+            </li>
+            <!-- Produk -->
+            <li class="nav-item">
+              <a class="nav-link" href="/produk.html">Produk</a>
+            </li>
+            <!-- Keuangan Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownKeuangan" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Keuangan </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownKeuangan">
+                <li><a class="dropdown-item" href="/pemasukan.html">Pemasukan</a></li>
+                <li><a class="dropdown-item" href="/pengeluaran.html">Pengeluaran</a></li>
+              </ul>
+            </li>
+            <!-- Profile Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Profile </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/profil.html">Profile</a></li>
+                <hr class="dropdown-divider" />
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- content -->
+    <div class="container mt-5 pt-5">
+      <h2 class="text-center mb-4">Informasi Keuangan</h2>
+
+      <!-- Statistik Ringkas -->
+      <div class="row text-center mb-4">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Total Pemasukan</h5>
+              <p class="display-6 text-success" id="totalPemasukan">Rp -</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Total Pengeluaran</h5>
+              <p class="display-6 text-danger" id="totalPengeluaran">Rp -</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabel Pemasukan -->
+      <div class="mb-5">
+        <h3 class="mb-3">Daftar Pemasukan Hari Ini</h3>
+        <table class="table table-bordered table-hover">
+          <thead class="table-success">
+            <tr>
+              <th>No</th>
+              <th>Nama Barang</th>
+              <th>Tanggal</th>
+              <th>Jumlah (Rp)</th>
+            </tr>
+          </thead>
+          <tbody id="detailPemasukan"></tbody>
+        </table>
+      </div>
+
+      <!-- Tabel Pengeluaran -->
+      <div>
+        <h3 class="mb-3">Daftar Pengeluaran Hari Ini</h3>
+        <table class="table table-bordered table-hover">
+          <thead class="table-danger">
+            <tr>
+              <th>No</th>
+              <th>Nama Barang</th>
+              <th>Tanggal</th>
+              <th>Jumlah (Rp)</th>
+            </tr>
+          </thead>
+          <tbody id="detailPengeluaran"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid footer mt-5" style="background-color: #0056b3">
+      <footer class="text-white text-center text-lg-start" style="background-color: #0056b3">
+        <div class="container p-4" style="max-width: 1270px; margin: auto">
+          <div class="row mt-4">
+            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4">Tentang Kami</h5>
+              <p>Fariz Frozen menyediakan berbagai pilihan food frozen dan bahan burger dengan harga yang terjangkau serta berkualitas.</p>
+              <p>"Kepuasan pelanggan adalah prioritas kami. Selalu memberikan produk berkualitas tinggi yang praktis dan lezat."</p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4 pb-1 text-white text-right">Kontak</h5>
+              <ul style="list-style: none; padding-left: 0">
+                <li class="col mb-3">
+                  <i class="bi bi-house-door-fill"></i>
+                  <span class="ms-2">Jl. Starban No.207, Polonia, Kec. Medan Polonia, Kota Medan</span>
+                </li>
+                <li class="col mb-3">
+                  <i class="bi bi-envelope-fill"></i>
+                  <span class="ms-2">farizfrozen@gmail.com</span>
+                </li>
+                <li class="col mb-3">
+                  <i class="bi bi-telephone-fill"></i>
+                  <span class="ms-2">+62 812-3456-7890</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+              <h5 class="text-uppercase mb-4">Follow Us</h5>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-facebook"></i>
+              </a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center p-3" style="background-color: #0056b3">
+          <p class="text-center mb-0">© 2024 Fariz Frozen.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="./js/home.js"></script>
+  </body>
+</html>

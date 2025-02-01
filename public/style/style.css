@@ -1,0 +1,266 @@
+/* Global Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h5, p {
+    margin: 0;
+    padding: 0;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.2rem;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.navbar {
+    background-color: #007bff !important; 
+    height: 70px;
+    
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+}
+
+.navbar .nav-link, 
+.navbar .navbar-brand, 
+.navbar .dropdown-toggle {
+    color: black !important; 
+}
+
+.navbar .nav-link:hover, 
+.navbar .navbar-brand:hover, 
+.navbar .dropdown-toggle:hover {
+    color: #f2f3f4 !important; 
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    color: #108bfe;
+}
+
+.banner-produk {
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.banner-produk .text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.col-3 h4 {
+    color: #343a40;
+    margin-bottom: 1rem;
+}
+
+.list-group-item {
+    color: #495057;
+}
+
+.list-group-item.active {
+    background-color: #ffc107;
+    color: #343a40;
+    border: none;
+}
+
+/* Banner Produk */
+.banner-produk {
+    background: url('banner-image.jpg') no-repeat center center/cover;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+
+.banner-produk::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay untuk teks */
+    z-index: 1;
+}
+
+.banner-produk .text {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-produk .text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.banner-produk .text p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Produk Section */
+.container {
+    display: flex;
+    justify-content: flex-end; /* Mengatur produk ke kanan */
+    flex-wrap: wrap;           /* Membungkus elemen produk */
+    gap: 20px;                 /* Jarak antar produk */
+    padding: 20px;
+}
+
+.col-4 {
+    width: 300px;              /* Lebar setiap produk */
+    margin-bottom: 20px;       /* Jarak bawah antar produk */
+}
+
+.card-img-top {
+    width: 100%;               /* Gambar produk menyesuaikan lebar kartu */
+    height: auto;
+}
+
+.card {
+    border-radius: 8px;        /* Sudut kartu melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
+}
+
+.btn-success {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #28a745; /* Warna tombol hijau */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.footer {
+    background-color: #0056b3;
+    padding: 20px 0;
+}
+
+.footer .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px 0; /* Tambahkan padding untuk memberikan ruang di dalam footer */
+}
+
+.footer .text-center {
+    background-color: #0056b3;
+    padding: 15px 0;
+}
+
+.footer h5 {
+    color: white;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer .btn-floating {
+    color: #fffbfb;
+    border: 1px solid white;
+}
+
+.footer .btn-floating:hover {
+    background-color: #8cff00;
+    color: #040405;
+}
+
+@media (max-width: 768px) {
+    .banner-produk {
+        height: 300px;
+    }
+
+    .banner-produk .text h1 {
+        font-size: 36px;
+    }
+
+    .banner-produk .text p {
+        font-size: 16px;
+    }
+
+    .card {
+        flex: 1 1 calc(50% - 20px); /* 2 kolom per baris */
+    }
+}
+
+@media (max-width: 0px) {
+    .navbar-brand span {
+        font-size: 16px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .banner-produk {
+        height: 200px;
+    }
+
+    .banner-produk .text h1 {
+        font-size: 28px;
+    }
+
+    .banner-produk .text p {
+        font-size: 14px;
+    }
+
+    .card {
+        flex: 1 1 100%; /* 1 kolom per baris */
+    }
+}
