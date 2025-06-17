@@ -117,6 +117,7 @@ async function deleteProduk(id) {
 }
 
 let currentEditId = null;
+let currentImagePath = "";
 
 async function editProduk(id) {
   try {
@@ -126,16 +127,18 @@ async function editProduk(id) {
       throw new Error(`Gagal mengambil data produk: ${response.status}`);
     }
 
-    console.log(id);
     const produk = await response.json();
+    console.log(produk);
 
     // Isi nilai input modal dengan data produk
     document.getElementById("editName").value = produk.nama;
     document.getElementById("editDescription").value = produk.deskripsi;
     document.getElementById("editPrice").value = produk.harga;
     document.getElementById("editCategory").value = produk.kategori;
+    // document.getElementById("editImage").value = produk.image;
 
     currentEditId = id; // Simpan ID produk yang sedang diedit
+    currentImagePath = produk.gambar;
 
     // Tampilkan modal
     const editModal = new bootstrap.Modal(document.getElementById("editModal"));
@@ -149,47 +152,55 @@ async function editProduk(id) {
 const saveEditButton = document.getElementById("saveEditButton");
 if (saveEditButton) {
   saveEditButton.addEventListener("click", async () => {
-    saveEditButton.addEventListener("click", async () => {
-      try {
-        // Ambil data dari input modal
-        const name = document.getElementById("editName").value;
-        const description = document.getElementById("editDescription").value;
-        const price = parseFloat(document.getElementById("editPrice").value);
-        const image = document.getElementById("editImage").files[0];
-        const kategori = document.getElementById("editCategory").value;
+    try {
+      // Ambil data dari input modal
+      const name = document.getElementById("editName").value;
+      const description = document.getElementById("editDescription").value;
+      const price = parseFloat(document.getElementById("editPrice").value);
+      const imageFile = document.getElementById("editImage").files[0];
+      const kategori = document.getElementById("editCategory").value;
 
-        if (price < 0) {
-          alert("Harga dan Jumlah tidak boleh negatif.");
-          return;
-        }
-
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("description", description);
-        formData.append("price", price);
-        formData.append("image", image);
-        formData.append("kategori", kategori);
-
-        // Kirim data yang diperbarui ke API
-        const response = await fetch(`/api/produk/${currentEditId}`, {
-          method: "PUT",
-          body: formData,
-        });
-
-        if (response.ok) {
-          alert("Produk berhasil diperbarui.");
-          const editModal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
-          editModal.hide();
-          tampilkanProduk(); // Refresh daftar produk
-        } else {
-          const error = await response.json();
-          alert(`Gagal memperbarui produk: ${error.message}`);
-        }
-      } catch (error) {
-        console.error("Error updating produk:", error);
-        alert("Terjadi kesalahan saat memperbarui produk.");
+      if (price < 0) {
+        alert("Harga dan Jumlah tidak boleh negatif.");
+        return;
       }
-    });
+
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("description", description);
+      formData.append("price", price);
+      formData.append("kategori", kategori);
+
+      if (imageFile) {
+        // Jika ada gambar baru, kirim file gambar
+        formData.append("image", imageFile);
+      } else {
+        // Jika tidak ada gambar baru, kirim path gambar lama
+        formData.append("imagePath", currentImagePath);
+      }
+
+      console.log(formData);
+      console.log(currentImagePath);
+
+      // Kirim data yang diperbarui ke API
+      const response = await fetch(`/api/produk/${currentEditId}`, {
+        method: "PUT",
+        body: formData,
+      });
+
+      if (response.ok) {
+        alert("Produk berhasil diperbarui.");
+        const editModal = bootstrap.Modal.getInstance(document.getElementById("editModal"));
+        editModal.hide();
+        tampilkanProduk(); // Refresh daftar produk
+      } else {
+        const error = await response.json();
+        alert(`Gagal memperbarui produk: ${error.message}`);
+      }
+    } catch (error) {
+      console.error("Error updating produk:", error);
+      alert("Terjadi kesalahan saat memperbarui produk.");
+    }
   });
 } else {
   console.error("saveEditButton tidak ditemukan di DOM!");

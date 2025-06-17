@@ -66,10 +66,11 @@ export const createProduct = (req, res) => {
 // Update a product
 export const updateProduct = (req, res) => {
   const { id } = req.params;
-  const { name, description, price, kategori } = req.body;
+  const { name, description, price, kategori, imagePath } = req.body;
 
-  const image = req.file ? req.file.filename : null;
+  const image = req.file ? req.file.filename : imagePath;
 
+  console.log(image);
   const query = "UPDATE produk SET nama = ?, deskripsi = ?, harga = ?, gambar = ?, kategori = ? WHERE id = ?";
   db.query(query, [name, description, price, image, kategori, id], (err) => {
     if (err) {
